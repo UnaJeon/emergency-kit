@@ -40,7 +40,7 @@ app.get('/api/products/:productId', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       const product = result.rows[0];
-      if (!product) {
+      if (!Number.isInteger(product)) {
         next(new ClientError(`cannot find with "productId" with ${productId}`, 404));
       } else {
         res.json(product);
