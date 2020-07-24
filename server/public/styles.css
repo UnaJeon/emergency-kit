@@ -1,0 +1,8 @@
+body{
+  background-color: rgb(247,248,249);
+}
+
+img{
+  object-fit: contain;
+  height: 30vh;
+}
