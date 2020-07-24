@@ -29,7 +29,7 @@ export default class ProductList extends React.Component {
         price={product.price}
         shortDescription={product.shortDescription} />);
     return (
-      <div>{listOfProducts}</div>
+      <div className="container">{listOfProducts}</div>
     );
   }
 }
