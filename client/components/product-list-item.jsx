@@ -8,10 +8,8 @@ export default function ProductListItem(props) {
   const price = '$' + priceArray.join('');
 
   return (
-    <div className="card col">
-      <div className="imageContainer">
-        <img src={props.image} className="card-img-top" />
-      </div>
+    <div className="card m-3" style={{ width: '18rem' }}>
+      <img src={props.image} className="card-img-top" />
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
         <h6 className="card-subtitle mb-2 text-muted">{price}</h6>

@@ -17,7 +17,9 @@ export default class ProductList extends React.Component {
       .then(products =>
         this.setState({
           products: products
-        }));
+        }))
+      .catch(err =>
+        console.error(err.message));
   }
 
   render() {
@@ -29,7 +31,7 @@ export default class ProductList extends React.Component {
         price={product.price}
         shortDescription={product.shortDescription} />);
     return (
-      <div className="container">{listOfProducts}</div>
+      <div className= "d-flex flex-wrap justify-content-center mt-4">{listOfProducts}</div>
     );
   }
 }
