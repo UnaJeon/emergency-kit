@@ -31,6 +31,11 @@ app.get('/api/products', (req, res, next) => {
 
 app.get('/api/products/:productId', (req, res, next) => {
   const productId = Number(req.params.productId);
+  if (!Number.isInteger(productId) || productId <= 0) {
+    return res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+  }
   const sql = `
   select *
   from "products"
@@ -40,7 +45,7 @@ app.get('/api/products/:productId', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       const product = result.rows[0];
-      if (!Number.isInteger(product)) {
+      if (!product) {
         next(new ClientError(`cannot find with "productId" with ${productId}`, 404));
       } else {
         res.json(product);
