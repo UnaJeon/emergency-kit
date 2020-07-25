@@ -6,3 +6,9 @@ img{
   object-fit: contain;
   height: 30vh;
 }
+.container{
+  background-color: white;
+}
+.goback{
+  cursor: pointer;
+}
