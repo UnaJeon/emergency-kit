@@ -6,7 +6,9 @@ img{
   object-fit: contain;
   height: 30vh;
 }
-.product_container{
+.container{
   background-color: white;
-  width: 80%;
+}
+.goback{
+  cursor: pointer;
 }

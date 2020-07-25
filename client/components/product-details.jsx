@@ -20,14 +20,16 @@ export default class ProductDetails extends React.Component {
       const price = convertNumber(this.state.product.price);
       const product = this.state.product;
       return (
-        <div className="product_container m-2">
-          <div className="ml-3 pt-3" style={{ color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span className="ml-2">Back to catalog</span></div>
-          <div className="row d-flex justify-content-center pt-2 mt-3">
-            <img src={product.image} alt="product" />
-            <div className="ml-4">
-              <h3>{product.name}</h3>
-              <div>{`$${price}`}</div>
-              <p>{product.shortDescription}</p>
+        <div className="container mt-5">
+          <div className="ml-3 pt-3" style={{ color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Back to catalog</span></div>
+          <div className="row justify-content-md-center m-2">
+            <div className="row d-flex justify-content-center pt-2 mt-3">
+              <img src={product.image} alt="product" />
+              <div className="ml-4">
+                <h3>{product.name}</h3>
+                <div>{`$${price}`}</div>
+                <p>{product.shortDescription}</p>
+              </div>
             </div>
           </div>
           <div className="row p-5 ">

@@ -8,7 +8,7 @@ export default function ProductListItem(props) {
   const price = '$' + priceArray.join('');
 
   return (
-    <div className="card m-3" style={{ width: '18rem' }} onClick={() => props.setView('details', { productId: props.productId })}>
+    <div className="card m-3" style={{ width: '18rem', cursor: 'pointer' }} onClick={() => props.setView('details', { productId: props.productId })}>
       <img src={props.image} className="card-img-top" />
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
