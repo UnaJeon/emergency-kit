@@ -16,6 +16,16 @@ export default class App extends React.Component {
     };
   }
 
+  setView(name, params) {
+    const newView = {
+      name: name,
+      params: params
+    };
+    this.setState({
+      view: newView
+    });
+  }
+
   componentDidMount() {
     fetch('/api/health-check')
       .then(res => res.json())
@@ -28,7 +38,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        <ProductList />
+        <ProductList props={this.setView} />
         <ProductDetails />
       </div>
 
