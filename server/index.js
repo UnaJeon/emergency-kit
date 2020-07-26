@@ -98,11 +98,22 @@ app.post('/api/cart', (req, res, next) => {
           });
       }
     })
-    .then(result =>
-    /* eslint-disable no-console */
-      console.log(result)
-    )
-    .then()
+    .then(result => {
+      req.session.cartId = result.cartId;
+      const sql = `
+      insert into "cartItems" ("cartId", "productId", "price")
+        values ($1, $2, $3)
+        returning "cartItemId"
+      `;
+      const params = [result.cartId, productId, result.price];
+      return db.query(sql, params)
+        .then(result => {
+          const cartItem = result.rows[0];
+          return cartItem.cartItemId;
+        });
+    })
+  /* eslint-disable no-console */
+    .then(result => console.log(result))
     .catch(err => next(err));
 });
 
