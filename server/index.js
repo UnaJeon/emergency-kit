@@ -55,13 +55,25 @@ app.get('/api/products/:productId', (req, res, next) => {
 });
 
 app.get('/api/cart', (req, res, next) => {
-  const sql = '';
-  const params = [];
-  db.query(sql, params)
-    .then(result => {
-      const cart = result.rows;
-      res.json(cart);
-    });
+  const cartId = req.session.cartId;
+  if (!req.session.cartId) {
+    return res.json([]);
+  } else {
+    const sql = `
+  select "c"."cartItemId",
+       "c"."price",
+       "p"."productId",
+       "p"."image",
+       "p"."name",
+       "p"."shortDescription"
+  from "cartItems" as "c"
+  join "products" as "p" using ("productId")
+ where "c"."cartId" = $1
+  `;
+    const params = [cartId];
+    db.query(sql, params)
+      .then(result => res.json(result.rows));
+  }
 });
 
 app.post('/api/cart', (req, res, next) => {
@@ -113,7 +125,26 @@ app.post('/api/cart', (req, res, next) => {
         });
     })
   /* eslint-disable no-console */
-    .then(result => console.log(result))
+    .then(result => {
+      const cartItemId = result;
+      const sql = `
+      select "c"."cartItemId",
+      "c"."price",
+      "p"."productId",
+      "p"."image",
+      "p"."name",
+      "p"."shortDescription"
+  from "cartItems" as "c"
+  join "products" as "p" using ("productId")
+where "c"."cartItemId" = $1
+      `;
+      const params = [cartItemId];
+      return db.query(sql, params)
+        .then(result => {
+          const cart = result.rows[0];
+          res.status(201).json(cart);
+        });
+    })
     .catch(err => next(err));
 });
 
