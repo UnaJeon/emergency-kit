@@ -72,7 +72,8 @@ app.get('/api/cart', (req, res, next) => {
   `;
     const params = [cartId];
     db.query(sql, params)
-      .then(result => res.json(result.rows));
+      .then(result => res.json(result.rows))
+      .catch(err => next(err));
   }
 });
 
@@ -92,8 +93,14 @@ app.post('/api/cart', (req, res, next) => {
       const product = result.rows[0];
       const price = product.price;
 
-      if (!price) {
-        throw (new ClientError('"productId" cannot be found', 400));
+      if (result.rows.length === 0) {
+        throw (new ClientError(`Product with productId ${productId} cannot be found`, 400));
+      }
+      if (req.session.cartId) {
+        return {
+          cartId: req.session.cartId,
+          price: price
+        };
       } else {
         const sql = `
         insert into "carts" ("cartId", "createdAt")
@@ -124,7 +131,6 @@ app.post('/api/cart', (req, res, next) => {
           return cartItem.cartItemId;
         });
     })
-  /* eslint-disable no-console */
     .then(result => {
       const cartItemId = result;
       const sql = `
