@@ -25,8 +25,8 @@ app.get('/api/products', (req, res, next) => {
   from "products"
   `;
   db.query(sql)
-    .then(result => res.json(result.rows)
-      .catch(err => next(err)));
+    .then(result => res.json(result.rows))
+    .catch(err => next(err));
 });
 
 app.get('/api/products/:productId', (req, res, next) => {
@@ -62,6 +62,48 @@ app.get('/api/cart', (req, res, next) => {
       const cart = result.rows;
       res.json(cart);
     });
+});
+
+app.post('/api/cart', (req, res, next) => {
+  const productId = Number(req.body.productId);
+  if (!Number.isInteger(productId) || productId <= 0) {
+    return res.status(400).json({ error: '"productId" must be a postive integer' });
+  }
+  const sql = `
+  select "price"
+  from "products"
+  where "productId" = $1
+`;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const product = result.rows[0];
+      const price = product.price;
+
+      if (!price) {
+        throw (new ClientError('"productId" cannot be found', 400));
+      } else {
+        const sql = `
+        insert into "carts" ("cartId", "createdAt")
+        values (default, default)
+        returning "cartId"
+        `;
+        return db.query(sql)
+          .then(result => {
+            const cartId = result.rows[0];
+            return {
+              cartId: cartId.cartId,
+              price: price
+            };
+          });
+      }
+    })
+    .then(result =>
+    /* eslint-disable no-console */
+      console.log(result)
+    )
+    .then()
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {
