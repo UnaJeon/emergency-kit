@@ -90,12 +90,10 @@ app.post('/api/cart', (req, res, next) => {
   const params = [productId];
   db.query(sql, params)
     .then(result => {
-      const product = result.rows[0];
-      const price = product.price;
-
       if (result.rows.length === 0) {
         throw (new ClientError(`Product with productId ${productId} cannot be found`, 400));
       }
+      const price = result.rows[0].price;
       if (req.session.cartId) {
         return {
           cartId: req.session.cartId,
