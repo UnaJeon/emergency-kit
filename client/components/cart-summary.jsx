@@ -26,14 +26,30 @@ export default class CartSummary extends React.Component {
           />);
       });
     } else if (this.props.cart.length === 0) {
-      cartList = <p>Your cart is empty</p>;
+
+      return (
+
+        cartList =
+        <>
+          <h1 className="mt-5 ml-5" >My Cart</h1>
+          <p className="ml-5">Your cart is empty</p>
+          <h5 className="mt-3 ml-5">Item Total{'$0.00'}</h5>
+        </>
+      );
+
     }
     return (
-      <div className="d-flex flex-column m-auto" style={{ backgroundColor: 'white' }}>
-        <h1 className = "mt-5 ml-5" >My Cart</h1>
-        <div>{cartList}</div>
-        <h5 className="mt-3 ml-5">Item Total{`$${convertNumber(itemTotal)}`}</h5>
+
+      <div>
+
+        <div style={{ backgroundColor: 'white', color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Back to catalog</span></div>
+        <div className="d-flex flex-column m-auto" style={{ backgroundColor: 'white' }} >
+          <h1 className = "mt-5 ml-5" >My Cart</h1>
+          <div>{cartList}</div>
+          <h5 className="mt-3 ml-5">Item Total{`$${convertNumber(itemTotal)}`}</h5>
+        </div>
       </div>
+
     );
     function convertNumber(number) {
       const convertPrice = number.toString();
