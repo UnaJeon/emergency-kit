@@ -30,24 +30,23 @@ export default class CartSummary extends React.Component {
       return (
 
         cartList =
-        <>
-          <h1 className="mt-5 ml-5" >My Cart</h1>
+
+        <div className="CartBackground" style={{ backgroundColor: 'white' }}>
+          <div className= "ml-2 mt-3" style={{ backgroundColor: 'white', color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Back to catalog</span></div>
+          <h1 className="mt-5 ml-3 pl-2" >My Cart</h1>
           <p className="ml-5">Your cart is empty</p>
           <h5 className="mt-3 ml-5">Item Total{'$0.00'}</h5>
-        </>
+        </div>
       );
 
     }
     return (
 
       <div>
-
-        <div style={{ backgroundColor: 'white', color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Back to catalog</span></div>
-        <div className="d-flex flex-column m-auto" style={{ backgroundColor: 'white' }} >
-          <h1 className = "mt-5 ml-5" >My Cart</h1>
-          <div>{cartList}</div>
-          <h5 className="mt-3 ml-5">Item Total{`$${convertNumber(itemTotal)}`}</h5>
-        </div>
+        <div className="m-3" style={{ color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Back to catalog</span></div>
+        <h1 className = "m-3 p-3" >My Cart</h1>
+        <div className="d-flex flex-column m-auto">{cartList}</div>
+        <h5 className="mt-3 ml-5">Item Total{`$${convertNumber(itemTotal)}`}</h5>
       </div>
 
     );
