@@ -151,7 +151,32 @@ where "c"."cartItemId" = $1
     })
     .catch(err => next(err));
 });
-
+app.post('/api/orders', (req, res, next) => {
+  const cartId = req.session.cartId;
+  const name = req.body.name;
+  const shippingAddress = req.body.shippingAddress;
+  const creditCard = req.body.creditCard;
+  if (!cartId) {
+    return res.status(400).json({ error: '"cartId" not found' });
+  }
+  if (!creditCard || !name || !shippingAddress) {
+    return res.status(400).json({ error: 'some of order information is missing' });
+  } else if (creditCard && name && shippingAddress) {
+    const sql = `
+  insert into "orders" ("cartId", "name", "shippingAddress", "creditCard")
+  values ($1,$2,$3,$4)
+  returning "orderId","createdAt", "name", "creditCard", "shippingAddress"
+  `;
+    const params = [cartId, name, shippingAddress, creditCard];
+    return db.query(sql, params)
+      .then(result => {
+        const order = result.rows[0];
+        delete req.session.cartId;
+        return res.status(201).json(order);
+      })
+      .catch(err => next(err));
+  }
+});
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
