@@ -160,8 +160,8 @@ app.post('/api/orders', (req, res, next) => {
     return res.status(400).json({ error: '"cartId" not found' });
   } else if (creditCard && name && shippingAddress) {
     const sql = `
-  insert into "orders" ("orderId","cartId", "name", "shippingAddress", "creditCard","createdAt")
-  values (default,$1,$2,$3,$4,default)
+  insert into "orders" ("cartId", "name", "shippingAddress", "creditCard")
+  values ($1,$2,$3,$4)
   returning "orderId","createdAt", "name", "creditCard", "shippingAddress"
   `;
     const params = [cartId, name, shippingAddress, creditCard];
