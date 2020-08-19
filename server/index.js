@@ -158,6 +158,9 @@ app.post('/api/orders', (req, res, next) => {
   const creditCard = req.body.creditCard;
   if (!cartId) {
     return res.status(400).json({ error: '"cartId" not found' });
+  }
+  if (!creditCard || !name || !shippingAddress) {
+    return res.status(400).json({ error: 'some of order information is missing' });
   } else if (creditCard && name && shippingAddress) {
     const sql = `
   insert into "orders" ("cartId", "name", "shippingAddress", "creditCard")
