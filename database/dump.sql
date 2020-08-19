@@ -134,7 +134,7 @@ ALTER SEQUENCE public."carts_cartId_seq" OWNED BY public.carts."cartId";
 
 CREATE TABLE public.orders (
     "orderId" integer NOT NULL,
-    "cardId" integer NOT NULL,
+    "cartId" integer NOT NULL,
     name text NOT NULL,
     "creditCard" text NOT NULL,
     "shippingAddress" text NOT NULL,
@@ -268,7 +268,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.orders ("orderId", "cardId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
 \.
 
 
