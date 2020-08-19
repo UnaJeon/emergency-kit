@@ -47,6 +47,20 @@ export default class App extends React.Component {
       .catch(err => console.error(err.message));
   }
 
+  placeOrder(orderInfo) {
+    fetch('api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderInfo.name, orderInfo.creditCard, orderInfo.shippingAddress)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setView('catalog', {});
+        this.setState({ cart: [] });
+      })
+      .catch(err => console.error(err.message));
+  }
+
   componentDidMount() {
     fetch('/api/health-check')
       .then(res => res.json())
