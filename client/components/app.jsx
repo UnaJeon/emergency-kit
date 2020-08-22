@@ -12,7 +12,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'checkout',
+        name: 'catalog',
         params: {}
       },
       cart: []
@@ -48,18 +48,16 @@ export default class App extends React.Component {
       .catch(err => console.error(err.message));
   }
 
-  placeOrder(orderInfo) {
+  placeOrder({ name, creditCard, shippingAddress }) {
     fetch('api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderInfo.name, orderInfo.creditCard, orderInfo.shippingAddress)
+      body: JSON.stringify({ name, creditCard, shippingAddress })
     })
       .then(res => res.json())
-      .then(data => {
-        this.setView('catalog', {});
-        this.setState({ cart: [] });
-      })
+      .then(data => this.setState({ cart: [], view: { name: 'catalog', params: {} } }))
       .catch(err => console.error(err.message));
+
   }
 
   componentDidMount() {

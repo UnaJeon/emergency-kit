@@ -19,12 +19,7 @@ export default class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const orderInfo = {
-      name: this.state.name,
-      creditCard: this.state.creditCard,
-      address: this.state.address
-    };
-    this.props.placeOrder(orderInfo);
+    this.props.placeOrder(this.state);
   }
 
   getTotal() {
@@ -44,7 +39,7 @@ export default class CheckoutForm extends React.Component {
       <div className="m-3 p-3">
         <h1 >My Cart</h1>
         <p className="mt-4">Order Total: ${this.getTotal()}</p>
-        <form className="p-2" type="submit" onSubmit={this.handleSubmit}>
+        <form className="p-2" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name</label>
             <input name ="name" type="text" className="form-control" onChange={this.handleChange}/>
@@ -55,10 +50,10 @@ export default class CheckoutForm extends React.Component {
           </div>
           <div className="form-group">
             <label>Shipping Addres</label>
-            <textarea type="textarea" name="address" className="form-control" onChange={this.handleChange} />
+            <textarea type="textarea" name="shippingAddress" className="form-control" onChange={this.handleChange} />
           </div>
+          <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-primary ">Place Order</button></div>
         </form>
-        <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button className="btn btn-primary " onClick={() => this.props.setView('catalog', {})}>Place Order</button></div>
       </div>
     );
   }
