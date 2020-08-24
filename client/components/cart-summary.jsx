@@ -45,7 +45,7 @@ export default class CartSummary extends React.Component {
         <div className="m-3" style={{ color: 'grey' }}><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Back to catalog</span></div>
         <h1 className = "m-3 p-3" >My Cart</h1>
         <div className="d-flex flex-column m-auto">{cartList}</div>
-        <h5 className="m-5">Item Total{`$${convertNumber(itemTotal)}`}</h5>
+        <h5 className="m-5 d-flex justify-content-between ">Item Total{`$${convertNumber(itemTotal)}`}<button className="btn btn-primary" onClick={() => this.props.setView('checkout', {})}>Checkout</button></h5>
       </div>
 
     );
