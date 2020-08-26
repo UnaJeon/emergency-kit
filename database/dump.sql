@@ -229,21 +229,6 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-1	2	1	2999
-2	3	1	2999
-3	4	1	2999
-4	5	5	9900
-5	6	2	2595
-6	6	2	2595
-7	6	3	2900
-8	6	2	2595
-9	7	1	2999
-10	7	2	2595
-11	8	1	2999
-12	8	2	2595
-13	9	2	2595
-14	9	3	2900
-15	9	2	2595
 \.
 
 
@@ -252,15 +237,6 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-1	2020-07-26 04:18:27.776165+00
-2	2020-07-26 04:57:28.58529+00
-3	2020-07-26 04:58:53.420654+00
-4	2020-07-26 05:43:23.257193+00
-5	2020-07-26 19:40:21.495016+00
-6	2020-07-26 20:54:17.874825+00
-7	2020-08-16 22:40:10.868354+00
-8	2020-08-18 06:13:33.901739+00
-9	2020-08-18 18:10:50.923766+00
 \.
 
 
@@ -277,12 +253,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+1	Emergency Blanket	599	/images/emergency-blanket.png	In high-visibility orange and 90% heat reflective.	The S.O.L. (Survive Outdoors Longer) Emergency Blanket weighs just 2.5 oz., but can help save a life. Made in high-visibility orange and designed to be 90% heat reflective – which means that it reflects 90% of body heat back to you to help keep you warm – it's a lightweight, emergency backcountry tool you can't afford to be without. In addition, it's waterproof, windproof, easily packable, and won't shred like traditional emergency blankets. Fits one person.
+2	Deluxe Family First Aid Kit	3500	/images/first-aid-kit.png	The 115-piece kit contains essential first-aid supplies to help treat most common injuries	Help your family when they need you most with the Deluxe Family First Aid Kit from the American Red Cross. The 115-piece kit contains essential first-aid supplies to help treat most common injuries, including cuts, scrapes, swelling, sprains, strains and more. Housed in a zippered case with handles for easy carrying, the kit includes the American Red Cross Emergency First Aid Guide and a unique ring binder design that allows you to view important first-aid information on the left while coordinating supplies that are stored neatly on the right. All contents are latex-free. You can restock your kit at any time with items from our Deluxe Personal First Aid Kit.
+3	Emergency Drinking Wawter	4200	/images/emergency-drinking-water.png	Water is a “basic need.” Make sure your covered in an emergency with a ready supply of drinking water.	Water is a “basic need.” Make sure your covered in an emergency with a ready supply of drinking water. Each pouch contains 4.225 ounces (1/8 quart) of purified water and has a shelf life of up to five years. It’s ideal for storing in cars, boats, and anywhere that clean drinking water could be compromised. Useful for natural disasters such as tornadoes, hurricanes, flash floods, wild fires, and earthquakes. Case contains 100 pouches of water.
+4	Rechargeable Hand Crank Weather ALERT Radio	6000	/images/alert-radio.png	This hand-crank, solar-charging radio receives AM/FM and all 7 NOAA/Environment.	This hand-crank and solar-charging radio receives AM/FM and all 7 NOAA/Environment, Canada Weather bands, and can be set to automatically broadcast emergency weather alerts. It can also charge your smartphone via USB and works as an emergency LED flashlight and flashing signal beacon. Spin the hand turbine for 60 seconds to get 10-15 minutes of radio and flashlight use or place the FRX3 in the sun for a passive charging option. Plug your phone into the built-in USB smart phone charger that allows a 30 second emergency phone call with one minute of cranking. This multi-powered, multi-function weather alert radio will give you access to news and information in natural disasters such as tornadoes, hurricanes, and earthquakes.
+5	LifeStraw Personal Water Filter	1995	/images/life-straw.jpg	Filters up to 1,000 gallons of contaminated water without iodine, chlorine, or other chemicals.	Removes minimum 99.9999% of waterborne bacteria, 99.9% of waterborne protozoan parasites, and filters to 0.2 microns; surpasses EPA filter standardsAn alternative to iodine tablets and bulky purifiers, it weighs 2oz for ultralight portability, and has a high flow rate for drinking from the source.
+6	Flashlight	2900	/images/flashlight.jpg	Easily light up an entire room or focus in on objects 200 meters away.	Virtually indestructible: This flashlight is IPX7 waterproof and can survive being dropped or submerged in water. Suitable for use in rain, snow, hurricane weather, camping, hiking, power outages, and emergencies.
 \.
 
 
@@ -290,21 +266,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 15, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 27, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 9, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 18, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, false);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 8, true);
 
 
 --

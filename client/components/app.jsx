@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkoutForm';
+import Modal from './modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,11 +16,13 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      show: 'modal-show'
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   setView(name, params) {
@@ -70,6 +73,10 @@ export default class App extends React.Component {
     this.getCartItems();
   }
 
+  hideModal() {
+    this.setState({ show: 'modal-hide' });
+  }
+
   render() {
     let page = null;
     if (this.state.view.name === 'catalog') {
@@ -77,15 +84,17 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'details') {
       page = <ProductDetails params={this.state.view.params} setView={this.setView} addToCart={this.addToCart} />;
     } else if (this.state.view.name === 'cart') {
-      page = <CartSummary cart = {this.state.cart} setView = {this.setView}/>;
+      page = <CartSummary cart={this.state.cart} setView={this.setView} />;
     } else if (this.state.view.name === 'checkout') {
-      page = <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} cart={this.state.cart}/>;
+      page = <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} cart={this.state.cart} />;
     }
     return (
       <div>
+        <Modal show={this.state.show} hide={this.hideModal}/>
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
         {page}
       </div>
     );
   }
+
 }
