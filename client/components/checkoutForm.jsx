@@ -52,7 +52,7 @@ export default class CheckoutForm extends React.Component {
             <label>Shipping Addres</label>
             <textarea type="textarea" name="shippingAddress" className="form-control" onChange={this.handleChange} />
           </div>
-          <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-primary ">Place Order</button></div>
+          <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-danger ">Place Order</button></div>
         </form>
       </div>
     );
