@@ -31,7 +31,8 @@ export default class ProductList extends React.Component {
         image={product.image}
         name={product.name}
         price={product.price}
-        shortDescription={product.shortDescription} />);
+        shortDescription={product.shortDescription}
+        addToCart={this.props.addToCart}/>);
     return (
       <div className= "d-flex flex-wrap justify-content-center mt-4">{listOfProducts}</div>
     );
