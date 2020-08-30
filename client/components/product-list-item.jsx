@@ -6,10 +6,10 @@ export default function ProductListItem(props) {
   const priceArray = pricetoString.split('');
   priceArray.splice(priceArray.length - 2, 0, '.');
   const price = '$' + priceArray.join('');
-  const product = props.productId;
+  const product = props.product;
   return (
-    <div className="card m-3" style={{ width: '18rem', cursor: 'pointer' }} onClick={() => props.setView('details', { productId: props.productId })}>
-      <img src={props.image} className="card-img-top" />
+    <div className="card m-3" style={{ width: '18rem', cursor: 'pointer' }} >
+      <img src={props.image} className="card-img-top" onClick={() => props.setView('details', { productId: props.productId })}/>
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{props.name}</h5>
         <h6 className="card-subtitle mb-2 text-muted">{price}</h6>
