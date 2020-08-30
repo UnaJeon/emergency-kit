@@ -7,17 +7,16 @@ export default class Modal extends React.Component {
       <div className={`modal ${this.props.show}`} tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Emergency Kit</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close"></button>
-              <span aria-hidden="true">&times;</span>
+            <div className="modal-header d-flex justify-content-center bg-light" style={{ color: 'red' }}>
+              <h5 className="modal-title">Welcome to Emergency Kit!</h5>
+
             </div>
             <div className="modal-body">
-              <p>Please note that this website is a content management application created for the purpose of demonstration. Please
+              <p className="p-3">Please note that this website is a content management application created for the purpose of demonstration. Please
                  acknowledge that the merchandise shown here is not available for purchase, that you will not provide genuine financial or personal information,
                 and that you are aware no purchase will truly be processed.</p>
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer d-flex justify-content-center bg-light">
               <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.props.hide}>Submit</button>
             </div>
           </div>

@@ -229,6 +229,10 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
+28	19	1	599
+29	20	2	3500
+30	20	2	3500
+31	20	2	3500
 \.
 
 
@@ -237,6 +241,8 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
+19	2020-08-28 06:11:18.4566+00
+20	2020-08-30 23:34:40.697244+00
 \.
 
 
@@ -253,12 +259,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Emergency Blanket	599	/images/emergency-blanket.png	In high-visibility orange and 90% heat reflective.	The S.O.L. (Survive Outdoors Longer) Emergency Blanket weighs just 2.5 oz., but can help save a life. Made in high-visibility orange and designed to be 90% heat reflective – which means that it reflects 90% of body heat back to you to help keep you warm – it's a lightweight, emergency backcountry tool you can't afford to be without. In addition, it's waterproof, windproof, easily packable, and won't shred like traditional emergency blankets. Fits one person.
-2	Deluxe Family First Aid Kit	3500	/images/first-aid-kit.png	The 115-piece kit contains essential first-aid supplies to help treat most common injuries	Help your family when they need you most with the Deluxe Family First Aid Kit from the American Red Cross. The 115-piece kit contains essential first-aid supplies to help treat most common injuries, including cuts, scrapes, swelling, sprains, strains and more. Housed in a zippered case with handles for easy carrying, the kit includes the American Red Cross Emergency First Aid Guide and a unique ring binder design that allows you to view important first-aid information on the left while coordinating supplies that are stored neatly on the right. All contents are latex-free. You can restock your kit at any time with items from our Deluxe Personal First Aid Kit.
-3	Emergency Drinking Wawter	4200	/images/emergency-drinking-water.png	Water is a “basic need.” Make sure your covered in an emergency with a ready supply of drinking water.	Water is a “basic need.” Make sure your covered in an emergency with a ready supply of drinking water. Each pouch contains 4.225 ounces (1/8 quart) of purified water and has a shelf life of up to five years. It’s ideal for storing in cars, boats, and anywhere that clean drinking water could be compromised. Useful for natural disasters such as tornadoes, hurricanes, flash floods, wild fires, and earthquakes. Case contains 100 pouches of water.
-4	Rechargeable Hand Crank Weather ALERT Radio	6000	/images/alert-radio.png	This hand-crank, solar-charging radio receives AM/FM and all 7 NOAA/Environment.	This hand-crank and solar-charging radio receives AM/FM and all 7 NOAA/Environment, Canada Weather bands, and can be set to automatically broadcast emergency weather alerts. It can also charge your smartphone via USB and works as an emergency LED flashlight and flashing signal beacon. Spin the hand turbine for 60 seconds to get 10-15 minutes of radio and flashlight use or place the FRX3 in the sun for a passive charging option. Plug your phone into the built-in USB smart phone charger that allows a 30 second emergency phone call with one minute of cranking. This multi-powered, multi-function weather alert radio will give you access to news and information in natural disasters such as tornadoes, hurricanes, and earthquakes.
-5	LifeStraw Personal Water Filter	1995	/images/life-straw.jpg	Filters up to 1,000 gallons of contaminated water without iodine, chlorine, or other chemicals.	Removes minimum 99.9999% of waterborne bacteria, 99.9% of waterborne protozoan parasites, and filters to 0.2 microns; surpasses EPA filter standardsAn alternative to iodine tablets and bulky purifiers, it weighs 2oz for ultralight portability, and has a high flow rate for drinking from the source.
-6	Flashlight	2900	/images/flashlight.jpg	Easily light up an entire room or focus in on objects 200 meters away.	Virtually indestructible: This flashlight is IPX7 waterproof and can survive being dropped or submerged in water. Suitable for use in rain, snow, hurricane weather, camping, hiking, power outages, and emergencies.
+1	Emergency Blanket	599	/images/emergency-blanket.png	The S.O.L.(Survive Outdoors Longer) Emergency Blanket	The S.O.L. (Survive Outdoors Longer) Emergency Blanket weighs just 2.5 oz., but can help save a life. Made in high-visibility orange and designed to be 90% heat reflective – which means that it reflects 90% of body heat back to you to help keep you warm – it's a lightweight, emergency backcountry tool you can't afford to be without. In addition, it's waterproof, windproof, easily packable, and won't shred like traditional emergency blankets. Fits one person.
+2	Deluxe Family First Aid Kit	3500	/images/first-aid-kit.png	The 115-piece kit contains essential first-aid supplies	Help your family when they need you most with the Deluxe Family First Aid Kit from the American Red Cross. The 115-piece kit contains essential first-aid supplies to help treat most common injuries, including cuts, scrapes, swelling, sprains, strains and more. Housed in a zippered case with handles for easy carrying, the kit includes the American Red Cross Emergency First Aid Guide and a unique ring binder design that allows you to view important first-aid information on the left while coordinating supplies that are stored neatly on the right. All contents are latex-free. You can restock your kit at any time with items from our Deluxe Personal First Aid Kit.
+5	LifeStraw Water Filter	1995	/images/life-straw.jpg	Filters up to 1,000 gallons of contaminated water	Removes minimum 99.9999% of waterborne bacteria, 99.9% of waterborne protozoan parasites, and filters to 0.2 microns; surpasses EPA filter standardsAn alternative to iodine tablets and bulky purifiers, it weighs 2oz for ultralight portability, and has a high flow rate for drinking from the source.
+3	Emergency Drinking Water	4200	/images/emergency-drinking-water.png	4.225 ounces (1/8 quart) of purified water	Water is a “basic need.” Make sure your covered in an emergency with a ready supply of drinking water. Each pouch contains 4.225 ounces (1/8 quart) of purified water and has a shelf life of up to five years. It’s ideal for storing in cars, boats, and anywhere that clean drinking water could be compromised. Useful for natural disasters such as tornadoes, hurricanes, flash floods, wild fires, and earthquakes. Case contains 100 pouches of water.
+6	Flashlight	2900	/images/flashlight.jpg	Easily light up a room or focus in on objects 200 meters away	Virtually indestructible: This flashlight is IPX7 waterproof and can survive being dropped or submerged in water. Suitable for use in rain, snow, hurricane weather, camping, hiking, power outages, and emergencies.
+4	Rechargeable ALERT Radio	6000	/images/alert-radio.png	Solar-charging radio receives AM/FM and 7 NOAA/Environment	This hand-crank and solar-charging radio receives AM/FM and all 7 NOAA/Environment, Canada Weather bands, and can be set to automatically broadcast emergency weather alerts. It can also charge your smartphone via USB and works as an emergency LED flashlight and flashing signal beacon. Spin the hand turbine for 60 seconds to get 10-15 minutes of radio and flashlight use or place the FRX3 in the sun for a passive charging option. Plug your phone into the built-in USB smart phone charger that allows a 30 second emergency phone call with one minute of cranking. This multi-powered, multi-function weather alert radio will give you access to news and information in natural disasters such as tornadoes, hurricanes, and earthquakes.
 \.
 
 
@@ -266,14 +272,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 27, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 31, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 18, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 20, true);
 
 
 --
