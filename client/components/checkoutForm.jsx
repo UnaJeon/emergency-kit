@@ -4,7 +4,8 @@ export default class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      lastName: '',
+      firstName: '',
       creditCard: '',
       shippingAddress: ''
     };
@@ -41,16 +42,20 @@ export default class CheckoutForm extends React.Component {
         <p className="mt-4">Order Total: ${this.getTotal()}</p>
         <form className="p-2" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Name</label>
-            <input name ="name" type="text" className="form-control" onChange={this.handleChange}/>
+            <label>First Name</label>
+            <input name ="lastName" type="text" className="form-control" onChange={this.handleChange}/>
+          </div>
+          <div className="form-group">
+            <label>Last Name</label>
+            <input name="firstName" type="text" className="form-control" onChange={this.handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Address</label>
+            <textarea type="text" name="shippingAddress" className="form-control" onChange={this.handleChange} />
           </div>
           <div className="form-group">
             <label>Credit Card</label>
             <input type="text" name="creditCard" className="form-control" onChange={this.handleChange}/>
-          </div>
-          <div className="form-group">
-            <label>Shipping Addres</label>
-            <textarea type="textarea" name="shippingAddress" className="form-control" onChange={this.handleChange} />
           </div>
           <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-danger ">Place Order</button></div>
         </form>

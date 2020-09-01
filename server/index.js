@@ -153,21 +153,22 @@ where "c"."cartItemId" = $1
 });
 app.post('/api/orders', (req, res, next) => {
   const cartId = req.session.cartId;
-  const name = req.body.name;
+  const lastName = req.body.lastName;
+  const firstName = req.body.firstName;
   const shippingAddress = req.body.shippingAddress;
   const creditCard = req.body.creditCard;
   if (!cartId) {
     return res.status(400).json({ error: '"cartId" not found' });
   }
-  if (!creditCard || !name || !shippingAddress) {
+  if (!creditCard || !lastName || !shippingAddress || !firstName) {
     return res.status(400).json({ error: 'some of order information is missing' });
   } else if (creditCard && name && shippingAddress) {
     const sql = `
-  insert into "orders" ("cartId", "name", "shippingAddress", "creditCard")
+  insert into "orders" ("cartId", "lastName","firstName", "shippingAddress", "creditCard")
   values ($1,$2,$3,$4)
-  returning "orderId","createdAt", "name", "creditCard", "shippingAddress"
+  returning "orderId","createdAt", "lastName","firstName", "creditCard", "shippingAddress"
   `;
-    const params = [cartId, name, shippingAddress, creditCard];
+    const params = [cartId, lastName, firstName, shippingAddress, creditCard];
     return db.query(sql, params)
       .then(result => {
         const order = result.rows[0];
