@@ -7,6 +7,8 @@ export default class CheckoutForm extends React.Component {
       lastName: '',
       firstName: '',
       creditCard: '',
+      month: '',
+      year: '',
       shippingAddress: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -118,10 +120,53 @@ export default class CheckoutForm extends React.Component {
               <input type="c" name="zipCode" className="form-control" onChange={this.handleChange} />
             </div>
           </div>
-
+          <div className="form-check">
+            <h4 className="" >Payment Method</h4>
+            <div className="d-flex align-items-center">
+              <input type="radio" name="payment" className="" onChange={this.handleChange} />
+              <label className="m-1">Credit Card</label>
+              <img className="d-flex justify-content-end" style={{ width: '200px', height: '50px' }} src="./images/credit-cards.png" />
+            </div>
+          </div>
           <div className="form-group">
-            <label>Credit Card</label>
+            <label>Card Number</label>
             <input type="text" name="creditCard" className="form-control" onChange={this.handleChange}/>
+          </div>
+          <div className="form-row">
+            <div className="col">
+              <label>Month</label>
+              <select name="month" className="form-control" placeholder="Month" onChange={this.handleChange}>
+                <option value=""> Month </option>
+                <option value="01"> 01 </option>
+                <option value="02"> 02 </option>
+                <option value="03"> 03 </option>
+                <option value="04"> 04 </option>
+                <option value="05"> 05 </option>
+                <option value="06"> 06 </option>
+                <option value="07"> 07 </option>
+                <option value="08"> 08 </option>
+                <option value="09"> 09 </option>
+                <option value="10"> 10 </option>
+                <option value="11"> 11 </option>
+                <option value="12"> 12 </option>
+              </select>
+            </div>
+            <div className="col">
+              <label>Year</label>
+              <select type="text" name="year" className="form-control" placeholder="Year" onChange={this.handleChange}>
+                <option value=""> Year </option>
+                <option value="2020"> 2020 </option>
+                <option value="2021"> 2021 </option>
+                <option value="2022"> 2022</option>
+                <option value="2023"> 2023 </option>
+                <option value="2024"> 2024 </option>
+                <option value="2025"> 2025 </option>
+                <option value="2026"> 2026 </option>
+                <option value="2027"> 2027 </option>
+                <option value="2028"> 2028 </option>
+              </select>
+              <option></option>
+            </div>
           </div>
           <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-danger ">Place Order</button></div>
         </form>
