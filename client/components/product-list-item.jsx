@@ -15,7 +15,7 @@ export default function ProductListItem(props) {
         <h6 className="card-subtitle mb-2 text-muted" onClick={() => props.setView('details', { productId: props.productId })}>{price}</h6>
         <p className="card-text" onClick={() => props.setView('details', { productId: props.productId })}>{props.shortDescription}</p>
         <div className="d-flex justify-content-center">
-          <button type="button" className="btn btn-danger col-12" onClick={() => props.addToCart(product)}>Add to Cart</button>
+          <button type="button" className="btn btn-danger col-10 p-2" onClick={() => props.addToCart(product)}>Add to Cart</button>
         </div>
       </div>
     </div>

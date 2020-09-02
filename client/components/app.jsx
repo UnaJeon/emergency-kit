@@ -52,11 +52,11 @@ export default class App extends React.Component {
       .catch(err => console.error(err.message));
   }
 
-  placeOrder({ name, creditCard, shippingAddress }) {
+  placeOrder({ firstName, lastName, creditCard, shippingAddress, month, year, state, city, zipCode }) {
     fetch('api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, creditCard, shippingAddress })
+      body: JSON.stringify({ lastName, firstName, creditCard, shippingAddress, month, year, state, city, zipCode })
     })
       .then(res => res.json())
       .then(data => this.setState({ cart: [], view: { name: 'catalog', params: {} } }))
