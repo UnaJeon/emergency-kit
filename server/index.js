@@ -156,19 +156,24 @@ app.post('/api/orders', (req, res, next) => {
   const lastName = req.body.lastName;
   const firstName = req.body.firstName;
   const shippingAddress = req.body.shippingAddress;
+  const year = req.body.year;
+  const month = req.body.month;
+  const city = req.body.city;
+  const state = req.body.state;
+  const zipCode = req.body.zipCode;
   const creditCard = req.body.creditCard;
   if (!cartId) {
     return res.status(400).json({ error: '"cartId" not found' });
   }
-  if (!creditCard || !lastName || !shippingAddress || !firstName) {
+  if (!creditCard || !lastName || !shippingAddress || !firstName || !year || !month || !city || !state || !zipCode) {
     return res.status(400).json({ error: 'some of order information is missing' });
-  } else if (creditCard && name && shippingAddress) {
+  } else if (creditCard && firstName && lastName && shippingAddress && year && month && city && state && zipCode) {
     const sql = `
-  insert into "orders" ("cartId", "lastName","firstName", "shippingAddress", "creditCard")
-  values ($1,$2,$3,$4)
-  returning "orderId","createdAt", "lastName","firstName", "creditCard", "shippingAddress"
+  insert into "orders" ("cartId","firstName","lastName", "shippingAddress", "creditCard", "year", "month", "city", "state", "zipCode")
+  values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+  returning "orderId","createdAt", "firstName","lastName", "creditCard", "shippingAddress", "year", "month", "city", "state", "zipCode"
   `;
-    const params = [cartId, lastName, firstName, shippingAddress, creditCard];
+    const params = [cartId, firstName, lastName, shippingAddress, creditCard, year, month, city, state, zipCode];
     return db.query(sql, params)
       .then(result => {
         const order = result.rows[0];

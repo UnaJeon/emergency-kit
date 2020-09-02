@@ -9,7 +9,10 @@ export default class CheckoutForm extends React.Component {
       creditCard: '',
       month: '',
       year: '',
-      shippingAddress: ''
+      shippingAddress: '',
+      state: '',
+      city: '',
+      zipCode: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,11 +49,11 @@ export default class CheckoutForm extends React.Component {
           <div className="form-row">
             <div className="col">
               <label>First Name</label>
-              <input name ="lastName" type="text" className="form-control" onChange={this.handleChange}/>
+              <input name ="firsttName" type="text" className="form-control" onChange={this.handleChange}/>
             </div>
             <div className="col">
               <label>Last Name</label>
-              <input name="firstName" type="text" className="form-control" onChange={this.handleChange} />
+              <input name="lastName" type="text" className="form-control" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
@@ -117,13 +120,13 @@ export default class CheckoutForm extends React.Component {
             </div>
             <div className="col">
               <label>Zip Code</label>
-              <input type="c" name="zipCode" className="form-control" onChange={this.handleChange} />
+              <input type="text" name="zipCode" className="form-control" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-check">
             <h4 className="" >Payment Method</h4>
             <div className="d-flex align-items-center">
-              <input type="radio" name="payment" className="" onChange={this.handleChange} />
+              <input type="radio" name="payment" className="" />
               <label className="m-1">Credit Card</label>
               <img className="d-flex justify-content-end" style={{ width: '200px', height: '50px' }} src="./images/credit-cards.png" />
             </div>
