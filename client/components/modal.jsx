@@ -17,7 +17,7 @@ export default class Modal extends React.Component {
                 and that you are aware no purchase will truly be processed.</p>
             </div>
             <div className="modal-footer d-flex justify-content-center bg-light">
-              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.props.hide}>Submit</button>
+              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.props.hide}>I Agree</button>
             </div>
           </div>
         </div>
