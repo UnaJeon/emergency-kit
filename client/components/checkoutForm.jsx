@@ -44,7 +44,7 @@ export default class CheckoutForm extends React.Component {
 
       <div className="m-3 p-3">
         <h1 >My Cart</h1>
-        <p className="mt-4">Order Total: ${this.getTotal()}</p>
+        <h3 className="mt-4" >Order Total: ${this.getTotal()}</h3>
         <form className="p-2" onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">
@@ -124,9 +124,9 @@ export default class CheckoutForm extends React.Component {
             </div>
           </div>
           <div className="form-check">
-            <h4 className="" >Payment Method</h4>
+            <h4 className="pt-4" >Payment Method</h4>
             <div className="d-flex align-items-center">
-              <input type="radio" name="payment" className="" />
+              <input type="radio" name="payment" />
               <label className="m-1">Credit Card</label>
               <img className="d-flex justify-content-end" style={{ width: '200px', height: '50px' }} src="./images/credit-cards.png" />
             </div>
@@ -168,7 +168,6 @@ export default class CheckoutForm extends React.Component {
                 <option value="2027"> 2027 </option>
                 <option value="2028"> 2028 </option>
               </select>
-              <option></option>
             </div>
           </div>
           <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-danger ">Place Order</button></div>

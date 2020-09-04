@@ -135,10 +135,16 @@ ALTER SEQUENCE public."carts_cartId_seq" OWNED BY public.carts."cartId";
 CREATE TABLE public.orders (
     "orderId" integer NOT NULL,
     "cartId" integer NOT NULL,
-    name text NOT NULL,
+    "lastName" text NOT NULL,
     "creditCard" text NOT NULL,
     "shippingAddress" text NOT NULL,
-    "createdAt" timestamp(6) with time zone DEFAULT now() NOT NULL
+    "createdAt" timestamp(6) with time zone DEFAULT now() NOT NULL,
+    "firstName" text NOT NULL,
+    year text NOT NULL,
+    month text NOT NULL,
+    city text NOT NULL,
+    state text NOT NULL,
+    "zipCode" text NOT NULL
 );
 
 
@@ -233,6 +239,14 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 29	20	2	3500
 30	20	2	3500
 31	20	2	3500
+32	21	2	3500
+33	21	2	3500
+34	22	2	3500
+35	23	1	599
+36	24	5	1995
+37	25	1	599
+38	25	2	3500
+39	26	5	1995
 \.
 
 
@@ -243,6 +257,12 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 COPY public.carts ("cartId", "createdAt") FROM stdin;
 19	2020-08-28 06:11:18.4566+00
 20	2020-08-30 23:34:40.697244+00
+21	2020-09-01 21:10:18.345679+00
+22	2020-09-02 01:12:38.083756+00
+23	2020-09-02 20:06:57.303083+00
+24	2020-09-02 20:10:45.802937+00
+25	2020-09-02 20:13:42.24932+00
+26	2020-09-02 20:42:42.794253+00
 \.
 
 
@@ -250,7 +270,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+COPY public.orders ("orderId", "cartId", "lastName", "creditCard", "shippingAddress", "createdAt", "firstName", year, month, city, state, "zipCode") FROM stdin;
 \.
 
 
@@ -272,21 +292,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 31, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 39, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 20, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 26, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 8, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 12, true);
 
 
 --
