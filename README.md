@@ -11,9 +11,10 @@ A full stack Node.js and React shopping cart app.
 - HTML 5
 - CSS 3
 - AWS EC2
-- PostgreSQL
-- Bootstarp 4
 - Webpack 4
+- font-awesome
+- Express
+- Babel
 
 ## Features
  1. User can view products for sale.
