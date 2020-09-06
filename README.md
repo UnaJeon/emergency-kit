@@ -11,7 +11,6 @@ A full stack Node.js and React shopping cart app.
 - HTML 5
 - CSS 3
 - AWS EC2
-
 - PostgreSQL
 - Bootstarp 4
 - Webpack 4
@@ -30,4 +29,4 @@ A full stack Node.js and React shopping cart app.
 1. Clone the repository and navigate to the directory ` cd emergency-kit`
 1. Install all dependencies `npm install`
 1. Run `npm db:import` to import the existing database.
-1.
+1. Start the project `npm run dev`
