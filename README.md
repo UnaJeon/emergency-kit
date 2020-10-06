@@ -2,6 +2,7 @@
 A full stack Node.js and React shopping cart app.
 
 ## Live Demo
+Try the application live at https://emergency-kit.unajeon.com/
 
 ## Technologies Used
 - React.js
