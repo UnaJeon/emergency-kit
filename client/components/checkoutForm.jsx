@@ -23,6 +23,13 @@ export default class CheckoutForm extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
+  // isFormValid() {
+  //   const { lastName, firstName, creditCard, month, year, shippingAddress, state, city, zipCode } = this.state;
+  //   if (!lastName || !firstName || !creditCard || !month || !year || !shippingAddress || !state || !city || !zipCode) {
+  //     return false;
+  //   }
+  // }
+
   handleSubmit(event) {
     event.preventDefault();
     this.props.placeOrder(this.state);
@@ -40,6 +47,8 @@ export default class CheckoutForm extends React.Component {
   }
 
   render() {
+    const { lastName, firstName, creditCard, month, year, shippingAddress, state, city, zipCode } = this.state;
+    const enabled = lastName.length > 0 && firstName.length > 0 && creditCard.length > 0 && month.length > 0 && year.length > 0 && shippingAddress.length > 0 && state.length > 0 && city.length > 0 && zipCode.length > 0;
     return (
 
       <div className="m-3 p-3">
@@ -49,25 +58,25 @@ export default class CheckoutForm extends React.Component {
           <div className="form-row">
             <div className="col">
               <label>First Name</label>
-              <input name ="firsttName" type="text" className="form-control" onChange={this.handleChange}/>
+              <input name="firstName" type="text" className="form-control" value={this.state.firstName} onChange={this.handleChange}/>
             </div>
             <div className="col">
               <label>Last Name</label>
-              <input name="lastName" type="text" className="form-control" onChange={this.handleChange} />
+              <input name="lastName" type="text" className="form-control" value={this.state.lastName} onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <label>Address</label>
-            <input type="text" name="shippingAddress" className="form-control" onChange={this.handleChange} />
+            <input type="text" name="shippingAddress" className="form-control" value={this.state.shippingAddress} onChange={this.handleChange} />
           </div>
           <div className="form-row">
             <div className="col">
               <label>City</label>
-              <input type="text" name="city" className="form-control" onChange={this.handleChange} />
+              <input type="text" name="city" className="form-control" value={this.state.city} onChange={this.handleChange} />
             </div>
             <div className="col">
               <label>State</label>
-              <select name="state" className="form-control" onChange={this.handleChange}>
+              <select name="state" className="form-control" value={this.state.state} onChange={this.handleChange}>
                 <option value=''>Select a state</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -120,7 +129,7 @@ export default class CheckoutForm extends React.Component {
             </div>
             <div className="col">
               <label>Zip Code</label>
-              <input type="text" name="zipCode" className="form-control" onChange={this.handleChange} />
+              <input type="text" name="zipCode" className="form-control" value={this.state.zipCode} onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-check">
@@ -133,12 +142,12 @@ export default class CheckoutForm extends React.Component {
           </div>
           <div className="form-group">
             <label>Card Number</label>
-            <input type="text" name="creditCard" className="form-control" onChange={this.handleChange}/>
+            <input type="text" name="creditCard" className="form-control" value={this.state.creditCard} onChange={this.handleChange}/>
           </div>
           <div className="form-row">
             <div className="col">
               <label>Month</label>
-              <select name="month" className="form-control" placeholder="Month" onChange={this.handleChange}>
+              <select name="month" className="form-control" placeholder="Month" value={this.state.month} onChange={this.handleChange}>
                 <option value=""> Month </option>
                 <option value="01"> 01 </option>
                 <option value="02"> 02 </option>
@@ -156,7 +165,7 @@ export default class CheckoutForm extends React.Component {
             </div>
             <div className="col">
               <label>Year</label>
-              <select type="text" name="year" className="form-control" placeholder="Year" onChange={this.handleChange}>
+              <select type="text" name="year" className="form-control" placeholder="Year" value={this.state.year} onChange={this.handleChange}>
                 <option value=""> Year </option>
                 <option value="2020"> 2020 </option>
                 <option value="2021"> 2021 </option>
@@ -170,7 +179,7 @@ export default class CheckoutForm extends React.Component {
               </select>
             </div>
           </div>
-          <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-danger ">Place Order</button></div>
+          <div className="m-3 d-flex justify-content-between" style={{ color: 'grey' }}><div><i className="fa fa-angle-left" aria-hidden="true"></i><span onClick={() => this.props.setView('catalog', {})} className="goback ml-2">Continue Shopping</span></div><button type="submit" className="btn btn-danger " disabled={!enabled}>Place Order</button></div>
         </form>
       </div>
     );
