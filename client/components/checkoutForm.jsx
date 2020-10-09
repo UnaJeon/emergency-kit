@@ -49,7 +49,7 @@ export default class CheckoutForm extends React.Component {
           <div className="form-row">
             <div className="col">
               <label>First Name</label>
-              <input name ="firsttName" type="text" className="form-control" onChange={this.handleChange}/>
+              <input name ="firstName" type="text" className="form-control" onChange={this.handleChange}/>
             </div>
             <div className="col">
               <label>Last Name</label>
