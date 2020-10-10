@@ -23,13 +23,6 @@ export default class CheckoutForm extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
-  // isFormValid() {
-  //   const { lastName, firstName, creditCard, month, year, shippingAddress, state, city, zipCode } = this.state;
-  //   if (!lastName || !firstName || !creditCard || !month || !year || !shippingAddress || !state || !city || !zipCode) {
-  //     return false;
-  //   }
-  // }
-
   handleSubmit(event) {
     event.preventDefault();
     this.props.placeOrder(this.state);
