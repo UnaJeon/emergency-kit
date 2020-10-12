@@ -1,14 +1,12 @@
 body{
-  background-color: rgb(247,248,249);
+  background-color: #e4e0e4;;
 }
 
 img{
   object-fit: contain;
   height: 30vh;
 }
-.container{
-  background-color: white;
-}
+
 .goback{
   cursor: pointer;
 }
@@ -18,4 +16,7 @@ img{
 }
 .modal-hide{
   display: none;
+}
+.cardItem:hover{
+  transform: scale(1.1);
 }
