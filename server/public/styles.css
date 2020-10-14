@@ -20,3 +20,6 @@ img{
 .cardItem:hover{
   transform: scale(1.1);
 }
+.container{
+  background-color: white;
+}
