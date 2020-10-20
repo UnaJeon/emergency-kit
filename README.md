@@ -25,7 +25,7 @@ Try the application live at https://emergency-kit.unajeon.com/
  1. User can place an order.
 
 ## Preview
-<img src="server/public/images/preview.gif">
+<img src="server/public/images/e-kit.gif">
 
 ## Getting Started
 1. Clone the repository and navigate to the directory ` cd emergency-kit`
